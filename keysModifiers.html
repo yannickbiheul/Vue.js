@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keys Modifiers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="keysModifiers">
+        <h2>Keys Modifiers</h2>
+        <a class="lien" href="index.html">Retour</a>
+        <p>Ton nom</p>
+        <input type="text" v-on:keyup.enter="inpFunc">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#keysModifiers',
+            data: {
+                
+            },
+            methods: {
+                inpFunc: function() {
+                    console.log("Tu as appuyé sur une touche !");
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

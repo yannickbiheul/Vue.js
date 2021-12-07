@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Modifiers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="eventModifiers">
+        <h2>Stop Propagation</h2>
+        <a class="lien" href="index.html">Retour</a>
+        <div v-on:click="foo">
+            <p>Lorem Ipsum</p>
+            <button id="btn" v-on:click.stop="foo">Clique !</button>
+            <!-- v-on:click.once pour qu'il ne fonctionne qu'une fois. -->
+        </div>
+        <h2>Prevent Default</h2>
+        <form v-on:submit.prevent="onSubmit">
+            <button>Valider</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#eventModifiers',
+            data: {
+                
+            },
+            methods: {
+                foo: function() {
+                    console.log("Cliqué !");
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

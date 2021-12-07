@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insérer données</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="insererDonnees">
+        <h2>Insérer des données</h2>
+        <a class="lien" href="index.html">Retour</a>
+
+        <p>{{ txt }}</p>
+        <p>{{ presentation() }}</p>
+        <p>Calcul de 2 + 4 : {{ calcul(2, 4) }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#insererDonnees',
+            data: {
+                txt: 'Hello World !'
+            },
+            methods: {
+                calcul: function(a, b) {
+                    return a + b
+                },
+                presentation: function() {
+                    return this.txt + " " + "Moi c'est Yannick !"
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

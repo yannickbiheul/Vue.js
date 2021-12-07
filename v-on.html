@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-ON</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="v-on">
+        <h2>V-ON</h2>
+        <a class="lien" href="index.html">Retour</a>
+
+        <h3>Compteur : {{ compteur }}</h3>
+        <button v-on:click="augmenter">Augmenter</button>
+        <button v-on:click="diminuer">Diminuer</button>
+        <button v-on:click="reset">Reset</button>
+        <hr>
+        <canvas v-on:mousemove="coords"></canvas>
+        <p>{{ x }} / {{ y }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#v-on',
+            data: {
+                compteur: 0,
+                x: 0,
+                y: 0,
+            },
+            methods: {
+                augmenter: function() {
+                    this.compteur++
+                },
+                diminuer: function() {
+                    this.compteur--
+                },
+                reset: function() {
+                    this.compteur = 0
+                },
+                coords: function(e) {
+                    this.x = e.offsetX;
+                    this.y = e.offsetY;
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

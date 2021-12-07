@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Bind</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="dataBind">
+        <h2>Data Bind</h2>
+        <a class="lien" href="index.html">Retour</a>
+        <hr>
+        <a v-bind:href="URLVueJS">Le site de Vue JS</a>
+        <hr>
+        <img v-bind:src="URLImg" alt="image" style="width: 50%;">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#dataBind',
+            data: {
+                URLVueJS: 'https://vuejs.org/',
+                URLImg: 'https://images.unsplash.com/photo-1638793774287-90f9505b2bb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1145&q=80',
+            },
+        })
+    </script>
+
+</body>
+</html>

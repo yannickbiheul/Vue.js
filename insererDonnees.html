@@ -16,6 +16,8 @@
         <p>{{ txt }}</p>
         <p>{{ presentation() }}</p>
         <p>Calcul de 2 + 4 : {{ calcul(2, 4) }}</p>
+
+        <p v-html="htmlBrut">{{ htmlBrut }}</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -23,7 +25,8 @@
         new Vue({
             el: '#insererDonnees',
             data: {
-                txt: 'Hello World !'
+                txt: 'Hello World !',
+                htmlBrut: '<p>Mon HTML Brut.</p>'
             },
             methods: {
                 calcul: function(a, b) {

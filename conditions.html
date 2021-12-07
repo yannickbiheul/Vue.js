@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="conditions">
+
+        <h2>Conditions</h2>
+        <a class="lien" href="index.html">Retour</a>
+        <hr>
+        <button v-on:click="toggleBox = !toggleBox">Toggle Box</button>
+        <div v-if="toggleBox" class="box red">
+
+        </div>
+        <p v-else="toggleBox">La box n'est pas là !</p>
+
+        <hr>
+
+        <p v-if="num === 1">La valeur est 1</p>
+        <p v-else-if="num === 2">La valeur est 2</p>
+        <p v-else-if="num === 3">La valeur est 3</p>
+        <p v-else>La valeur n'est pas entre 1 et 3</p>
+
+        <hr>
+
+        <template v-if="toggleBox">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci reiciendis, repudiandae nemo non sunt, autem quam ut pariatur repellendus suscipit recusandae voluptate impedit facere quidem officia animi inventore reprehenderit accusamus.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, explicabo. Cupiditate dolores doloribus rem omnis, quae, eaque vel fugiat ut mollitia iusto qui dolore obcaecati! Alias rem animi ipsa earum!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo sed libero quam, quibusdam vero perferendis deserunt delectus distinctio consequuntur dolorem labore eveniet odit maxime quo provident laudantium temporibus fugiat beatae.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius porro magni eligendi rerum non labore dolor sunt tempore qui magnam, ut debitis dignissimos voluptatibus obcaecati hic eaque dicta harum ratione!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem explicabo velit quis harum nihil recusandae, iste sit quisquam excepturi doloremque rem illum! Quo culpa laudantium modi id exercitationem non consequatur.</p>
+        </template>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#conditions',
+            data: {
+                toggleBox: true,
+                num: 1
+            }
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instances</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="instance1">
+
+        <h2>{{ txt }}</h2>
+        <mon-premier-composant></mon-premier-composant>
+        <mon-premier-composant></mon-premier-composant>
+        <mon-premier-composant></mon-premier-composant>
+        <mon-premier-composant></mon-premier-composant>
+        <mon-premier-composant></mon-premier-composant>
+
+    </div>
+
+    <div id="instance2">
+
+        <h2>{{ txt }}</h2>
+        <button v-on:click="func1">Changer le texte de l'instance 1</button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+
+        Vue.component('mon-premier-composant', {
+            template: '<p>Le premier composant de {{ nom }} <button v-on:click="changementNom">Changer le nom</button></p>',
+            data: function() {
+                return {
+                    nom: "Yannick Biheul"
+                }
+            },
+            methods: {
+                changementNom: function() {
+                    this.nom = "Barnabé Pelouse"
+                }
+            }
+        })
+
+        const instance1 = new Vue({
+            el: '#instance1',
+            data: {
+                txt: "Hello Instance 1"
+            }
+        })
+
+        const instance2 = new Vue({
+            el: '#instance2',
+            data: {
+                txt: "Hello Instance 2"
+            },
+            methods: {
+                func1: function() {
+                    instance1.txt = "Je t'ai changée !"
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

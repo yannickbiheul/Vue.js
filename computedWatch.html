@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComputedWatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="computedWatch">
+        <h2>ComputedWatch</h2>
+        <a class="lien" href="index.html">Retour</a>
+        <hr>
+        <h3>CompteurA : {{ compteurA }}</h3>
+        <button v-on:click="compteurA++">Augmenter</button>
+        <button v-on:click="compteurA--">Diminuer</button>
+        <button v-on:click="compteurA = 0">Reset</button>
+        <p>{{ checkValeur() }} |||| {{ memo }}</p>
+        <hr>
+        <h3>CompteurB : {{ compteurB }}</h3>
+        <button v-on:click="compteurB++">Augmenter</button>
+        <button v-on:click="compteurB--">Diminuer</button>
+        <button v-on:click="compteurB = 0">Reset</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#computedWatch',
+            data: {
+                compteurA: 0,
+                compteurB: 0,
+            },
+            methods: {
+                checkValeur: function() {
+                    console.log("La fonction checkValeur s'est lancée");
+                    return this.compteurA > 10 ? 'Supérieur à 10' : 'Inférieur à 10'
+                },
+            },
+            computed: {
+                memo: function() {
+                    console.log("La fonction memo s'est lancée");
+                    return this.compteurA > 10 ? 'Supérieur à 10' : 'Inférieur à 10'
+                }
+            },
+            watch: {
+                compteurA: function() {
+                    let ctx = this;
+                    setTimeout(function() {
+                        ctx.compteurA = 0;
+                    }, 1500)
+                    /* OU
+                    setTimeout(() => {
+                        this.compteurA = 0;
+                    }, 1500) 
+                    */
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

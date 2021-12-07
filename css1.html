@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="css1">
+
+        <h2>Un toggle en CSS</h2>
+        <a class="lien" href="index.html">Retour</a>
+        <hr>
+        <div v-bind:class="[objCSS, toggleColor ? 'bordure' : '']">
+            
+        </div>
+        <button v-on:click="toggleColor = !toggleColor">Toggle la couleur</button>
+        <hr>
+        <p v-bind:style="monStyle">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi commodi assumenda accusamus, ratione debitis at alias, quos tempora autem excepturi blanditiis iste suscipit sequi dolorum quo laudantium repellendus necessitatibus libero!</p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#css1',
+            data: {
+                toggleColor: false,
+                backgroundColor: 'lightblue',
+                textColor: 'black',
+                width: 300
+            },
+            computed: {
+                objCSS: function() {
+                    return {
+                        red: this.toggleColor,
+                        box: true
+                    }
+                },
+                monStyle: function() {
+                    return {
+                        backgroundColor: this.backgroundColor,
+                        color: this.textColor,
+                        width: this.width + "px"
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

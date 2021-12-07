@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boucles</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="boucles">
+
+        <h2>Boucles</h2>
+        <a class="lien" href="index.html">Retour</a>
+        <hr>
+        <button v-on:click="toggleBox = !toggleBox">Toggle Box</button>
+        <div v-if="toggleBox" class="box red">
+
+        </div>
+        <p v-else="toggleBox">La box n'est pas là !</p>
+
+        <hr>
+
+        <h2>Parcourir un tableau</h2>
+        <ul>
+            <li v-for="(fruit, i) in tableauFruits">{{ i }} : {{ fruit }}</li>
+        </ul>
+        <h2>Prcourir un objet</h2>
+        <ul>
+            <li v-for="(val, props) in objChat">{{ props }} : {{ val }}</li>
+        </ul>
+        <ul>
+            <li v-for="obj in tableauChats">
+                <div v-for="(val, props) in obj">{{ props }} : {{ val }}</div>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#boucles',
+            data: {
+                toggleBox: true,
+                tableauFruits: ["fraise", "pomme", "poire"],
+                objChat: {
+                    race: "Persan",
+                    age: 3,
+                    poids: "3kg"
+                },
+                tableauChats: [
+                    { race: 'Persan', age: 3, poids: "3kg" },
+                    { race: 'Persan', age: 3, poids: "3kg" },
+                    { race: 'Persan', age: 3, poids: "3kg" },
+                ],
+            }
+        })
+    </script>
+
+</body>
+</html>
